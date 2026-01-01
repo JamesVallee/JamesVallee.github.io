@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 2rem; line-height: 1.6; }
+    header { margin-bottom: 2rem; }
+    nav a { margin-right: 1rem; text-decoration: none; color: #333; font-weight: bold; }
+    h1, h2 { color: #222; }
+    img { max-width: 100%; height: auto; margin: 1rem 0; }
+    footer { margin-top: 3rem; text-align: center; font-size: 0.9rem; color: #666; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/projects/' | relative_url }}">Projects</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+    </nav>
+  </header>
+
+  {{ content }}
+
+  <footer>
+    &copy; {{ "now" | date: "%Y" }} James Vallée
+  </footer>
+</body>
+</html>
