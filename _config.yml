@@ -2,3 +2,6 @@ title: James Vallée Portfolio
 baseurl: ""
 url: "https://jamesvallee.ca"
 theme: minima
+collections:
+  projects:
+    output: true
