@@ -16,13 +16,17 @@ body {
 
 /* ===== HEADER & NAV ===== */
 .header-content {
-  max-width: 1500px;   /* keeps content centered */
+  display: flex;
+  justify-content: space-between; /* logo left, nav right */
+  align-items: center;
+  max-width: 1500px;
   margin: auto;
   padding: 2rem;
+}
 
-  display: flex;             /* enable flex layout */
-  justify-content: flex-end; /* push content to the right */
-  align-items: center;       /* vertically center nav items if needed */
+.logo img {
+  height: 50px; /* adjust logo height */
+  width: auto;
 }
 
 header {
@@ -339,13 +343,9 @@ section.full-width {
 
 /* ===== MOBILE RESPONSIVENESS ===== */
 @media (max-width: 768px) {
-  /* Header/Nav */
   .header-content {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 1rem;
-    padding: 1rem;
   }
 
   nav a {
@@ -353,6 +353,10 @@ section.full-width {
     margin-right: 1rem;
   }
 
+  .logo img {
+    height: 40px;
+  }
+  
   /* Hero/Banner Text Sizes */
   .hero-content h1,
   .banner-content h1 {
