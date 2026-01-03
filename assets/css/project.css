@@ -1,0 +1,108 @@
+---
+---
+
+/* Project Page Layout Tools */
+.project-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.project-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.project-section img {
+  display: block;          
+  margin: 0 auto;          /* Centers it */
+  width: auto;             /* Let the width scale naturally */
+  max-width: 100%;         /* Don't let it overflow the column */
+  height: auto;            /* Maintain aspect ratio */
+  max-height: 600px;      
+  
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+}
+
+.section-text {
+  flex: 1;
+  font-size: 1.1rem;
+  margin-top: 0em;
+  min-width: 300px;
+}
+
+.section-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.section-image img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+}
+
+.title {
+  color: #222; 
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 2px solid #222;
+  margin-bottom: 1.5rem;
+}
+
+.overview-intro {
+  color: #222; 
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-left: 4px solid #333;
+}
+
+.spec-item label {
+  display: block;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.spec-item span {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.design-constraints {
+  border: 1px solid #ddd;
+  background: #fdfdfd;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+.design-constraints h4 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #000000;
+  display: inline-block;
+}
+
+
+/* Responsive fix */
+@media (max-width: 768px) {
+  .project-section, .project-section.reverse {
+    flex-direction: column;
+  }
+}
+
+

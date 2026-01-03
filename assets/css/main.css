@@ -341,6 +341,14 @@ section.full-width {
   font-weight: 700;
 }
 
+/* Delimit project and collection items */
+.project-item,
+.collection-item {
+  border: 2px solid rgba(0,0,0,0.2); /* light gray border */
+  border-radius: 8px; /* keep corners rounded */
+  overflow: hidden;
+}
+
 /* ===== MOBILE RESPONSIVENESS ===== */
 @media (max-width: 768px) {
   .header-content {
@@ -354,9 +362,9 @@ section.full-width {
   }
 
   .logo img {
-    height: 40px;
+    height: 50px;
   }
-  
+
   /* Hero/Banner Text Sizes */
   .hero-content h1,
   .banner-content h1 {
@@ -377,6 +385,7 @@ section.full-width {
   .experience-logos img {
   height: 60px;
   object-fit: contain;
+  }
 
   /* Grid Adjustments */
   .experience-grid,
@@ -397,6 +406,11 @@ section.full-width {
   }
   
   /* Show overlays on mobile */
+
+  .overlay-content h3 {
+    font-size: 1.2rem;
+  }
+  
   .project-item .overlay,
   .collection-item .overlay {
     background-color: rgba(0,0,0,0.5);
@@ -408,9 +422,5 @@ section.full-width {
     transform: translateY(0);
   }
 
-  /* Optional: slightly reduce overlay text size */
-  .overlay-content h3 {
-    font-size: 1.2rem;
-  }
-}
+
 }
