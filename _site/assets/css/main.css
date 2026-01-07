@@ -162,7 +162,7 @@ section.full-width {
 
 .experience-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
 }
 
@@ -432,8 +432,8 @@ section.full-width {
 }
 
 .tools-skills-highlight {
-  background-color: #9c9c9c;        /* dark background */
-  color: #000000;                   /* white text for contrast */
+  background-color: #bbbbbb;        
+  color: #000000;                   
   padding: 0 2rem;
   border-radius: 16px;
   max-width: 800px;
@@ -449,9 +449,9 @@ section.full-width {
 }
 
 .tools-skills-lists h3 {
-  font-size: 1.6rem;   /* make subheaders bigger */
+  font-size: 1.6rem;  
   margin-bottom: 1rem;
-  color: #000000;      /* slightly darker accent */
+  color: #000000;      
   text-align: center;
 }
 
@@ -459,18 +459,12 @@ section.full-width {
   list-style: disc;
   padding-left: 1.5rem;
   text-align: left;
-  column-count: 1;     /* could use 2 if you want wider screens */
-}
-
-@media (min-width: 768px) {
-  .tools-skills-lists ul {
-    column-count: 1;
-  }
+  column-count: 1;    
 }
 
 
 /* ===== MOBILE RESPONSIVENESS ===== */
-@media (max-width: 1500px) {
+@media (max-width: 700px) {
   .header-content {
     flex-direction: column;
     gap: 1rem;
