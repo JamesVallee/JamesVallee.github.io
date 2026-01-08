@@ -3,7 +3,7 @@ layout: default
 title: FSAE Projects
 permalink: /fsae/
 nav: fsae
-banner_image: /assets/images/DSC01991.jpg
+banner_image: /assets/images/FSAE/DSC02025.jpg
 subtitle: Engineering designs, builds, and racing projects for FSAE competitions.
 ---
 
