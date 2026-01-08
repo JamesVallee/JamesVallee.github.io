@@ -544,17 +544,27 @@ section.full-width {
 }
 
 .coming-soon {
-  width: 100%;
+  flex: 1 1 100%;           /* takes full width on mobile */
+  max-width: 500px;         /* limits width on large screens */
+  box-sizing: border-box;
+  padding: 2rem 1.5rem;
+  margin: 0 auto;           /* centers horizontally */
   text-align: center;
-  padding: 4rem 2rem;
-  font-size: 1.5rem;
-  color: #555;
+  font-size: 1.25rem;
   font-weight: bold;
+  color: #555;
   border: 2px dashed #aaa;
   border-radius: 12px;
   background-color: #f9f9f9;
+  overflow-wrap: break-word; /* prevents text overflow */
 }
 
+@media (max-width: 480px) {
+  .coming-soon {
+    font-size: 1rem;
+    padding: 1.5rem 1rem;
+  }
+}
 
 /* Mobile */
 @media screen and (max-width: 768px) {
