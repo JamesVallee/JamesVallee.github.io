@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Research Council of Canada</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Favicon for Browsers -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/JV Block Logo.png">
+  <!-- Apple bookmark Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/JV Block Logo.png">
+
+  
+</head>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+
+  let index = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  // Swipe support
+  let startX = 0;
+
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  track.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) nextBtn.click();
+    if (endX - startX > 50) prevBtn.click();
+  });
+});
+</script>
+
+<body>
+  <!-- Header Nav -->
+  <header>
+    <div class="header-content">
+      <!-- Logo -->
+      <a href="/" class="logo">
+        <img src="/assets/images/JV logo.png" alt="James Vallée Logo">
+      </a>
+
+      <!-- Navigation -->
+      <nav class="nav">
+        <a href="/" class="">Home</a>
+        <a href="/experience/" class="">Experience</a>
+        <a href="/fsae/" class="">FSAE&nbsp;Projects</a>
+        <a href="/personal/" class="">Personal&nbsp;Projects</a>
+        <a href="/about/" class="">About</a>
+        
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- Banner / Hero (full-width) -->
+  
+  <section class="banner" style="background-image: url('/assets/images/NRC_Cover.jpg');">
+    <div class="overlay"></div>
+    <div class="banner-content">
+      <h1>National Research Council of Canada</h1>
+      
+      <p>Aerospace Research Intern – Structures & Materials Performance</p>
+      
+    </div>
+  </section>
+  
+
+  <!-- Page content -->
+  <main>
+    <article class="project-page">
+  <div class="page-content">
+    <div class="overview-block">
+  <div class="overview-logo">
+    <img src="/assets/images/NRCC_logo.png" alt="National Research Council Canada Logo" />
+  </div>
+
+  <div class="overview-text">
+    <h2>Overview</h2>
+    <p>
+      I worked as an <strong>Aerospace Research Intern</strong> within the
+      <em>Structures and Materials Performance</em> group at the National Research
+      Council of Canada.
+    </p>
+    <p>
+      My role spanned <strong>multiple independent research projects</strong>, each
+      conducted under different supervisors and focused on distinct aspects of
+      aerospace materials, experimental mechanics, and structural modeling.
+    </p>
+    <p>
+      The position combined <strong>hands-on experimental testing</strong>,
+      coordination of complex research logistics, and
+      <strong>publication-quality data analysis and documentation</strong>,
+      supporting long-term research initiatives in aircraft structural performance
+      and digital twin development.
+    </p>
+  </div>
+</div>
+
+<hr />
+
+<h2 id="composite-impact-testing-of-carbon-fiber-laminates">Composite Impact Testing of Carbon Fiber Laminates</h2>
+
+<p>This research project focused on the <strong>impact behavior of carbon fiber composite panels</strong> with controlled layup sequences and impact configurations. The objective was to characterize damage initiation and progression under impact loading and to generate experimentally validated datasets suitable for publication.</p>
+
+<p>I supported the <strong>entire experimental lifecycle</strong>, from specimen preparation to post-test inspection and reporting.</p>
+
+<h3 id="key-contributions">Key Contributions</h3>
+<ul>
+  <li>Coordinated logistics for composite specimen preparation, machining, fabrication, and testing</li>
+  <li>Managed large experimental test matrices involving multiple layup sequences and impact conditions</li>
+  <li>Conducted and documented <strong>impact testing</strong> on composite plates</li>
+  <li>Supported <strong>non-destructive inspection (NDI)</strong> to assess post-impact damage</li>
+  <li>Maintained detailed specimen tracking and test records using structured Excel workflows</li>
+  <li>Performed data processing, visualization, and result summarization</li>
+  <li>Contributed to the writing of a <strong>published technical research paper</strong></li>
+  <li>Collaborated closely with researchers, technicians, and external suppliers</li>
+</ul>
+
+<div class="carousel">
+  <button class="carousel-btn prev">‹</button>
+
+  <div class="carousel-track">
+    <div class="carousel-slide">
+      <img src="/assets/images/Cancom/Picture1.png" alt="Impact testing setup" />
+    </div>
+    <div class="carousel-slide">
+      <img src="/assets/images/Cancom/Picture2.png" alt="Damage comparison results" />
+    </div>
+    <div class="carousel-slide">
+      <img src="/assets/images/Cancom/Picture3.png" alt="Buckling effects on damage tolerance" />
+    </div>
+  </div>
+
+  <button class="carousel-btn next">›</button>
+</div>
+
+<p class="figure-caption">
+  Selected figures reproduced from: <em>Understanding the Effect of Global Buckling on Composites Damage Tolerance</em>, CANCOM 2024.
+</p>
+
+<p><a href="https://www.cacsma.ca/wp-content/uploads/2024/10/CANCOM_2024_paper_90.pdf" target="_blank" class="button">
+  Read the full paper (PDF)
+</a></p>
+
+<hr />
+
+<h2 id="high-temperature-fatigue-testing-of-metallic-alloys">High-Temperature Fatigue Testing of Metallic Alloys</h2>
+
+<p>In a separate research stream, I supported <strong>high-temperature fatigue testing</strong> of metallic alloys used in aerospace structures. This work was highly hands-on and focused on experimental setup, instrumentation, and monitoring of fatigue and crack growth behavior.</p>
+
+<h3 id="key-contributions-1">Key Contributions</h3>
+<ul>
+  <li>Assisted with <strong>test setup and execution</strong> on MTS mechanical testing systems</li>
+  <li>Instrumented specimens using <strong>microwelding</strong> and strain gauge installation</li>
+  <li>Conducted <strong>low-cycle fatigue (LCF)</strong> testing under controlled conditions</li>
+  <li>Used optical microscopy to measure and track <strong>crack growth</strong></li>
+  <li>Generated and reviewed crack growth reports using <strong>macro-enabled Excel tools</strong></li>
+  <li>Supported data quality assurance and experimental repeatability</li>
+</ul>
+
+<hr />
+
+<h2 id="aircraft-structure-reverse-engineering-for-digital-twin-support">Aircraft Structure Reverse Engineering for Digital Twin Support</h2>
+
+<p>This project involved the <strong>reverse engineering of a helicopter rotor blade cross-section</strong> to support digital twin research efforts. The goal was to create an accurate geometric and material representation suitable for downstream structural analysis.</p>
+
+<p>While I did not develop the digital twin itself, my work provided <strong>validated structural inputs</strong> for digital twin modeling efforts.</p>
+
+<h3 id="key-contributions-2">Key Contributions</h3>
+<ul>
+  <li>Digitized and reconstructed rotor blade cross-sections</li>
+  <li>Created detailed CAD models using <strong>Autodesk Inventor</strong></li>
+  <li>Assigned material properties, meshing and prepared analysis-ready models in <strong>ANSYS</strong></li>
+  <li>Exported structural data to <strong>NASTRAN-compatible formats</strong></li>
+  <li>Used <strong>VABS</strong> to compute composite section properties</li>
+  <li>Documented modeling assumptions, geometry fidelity, and material definitions</li>
+</ul>
+
+<hr />
+
+<div class="tools-skills-highlight">
+
+<div class="tools-skills-lists">
+
+<div class="tools-used">
+<h3>Tools Used</h3>
+<ul>
+  <li>Excel</li>
+  <li>Autodesk Inventor</li>
+  <li>ANSYS Mechanical</li>
+  <li>VABS</li>
+  <li>MTS fatigue load frame</li>
+  <li>Optical microscopy</li>
+  <li>Microwelding and strain gauge instrumentation</li>
+</ul>
+</div>
+
+<div class="skills-developed">
+<h3>Engineering Skills Developed</h3>
+<ul>
+  <li>Experimental mechanics &amp; mechanical testing</li>
+  <li>Composite and metallic materials characterization</li>
+  <li>Prepreg autoclave layups and composite manufacturing processes</li>
+  <li>Data analysis and visualization</li>
+  <li>Structural reverse engineering</li>
+  <li>Test planning, coordination, and documentation</li>
+  <li>Technical reporting &amp; engineering communication</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+
+  </div>
+</article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="page-content">
+      &copy; 2026 James Vallée
+    </div>
+  </footer>
+</body>
+</html>

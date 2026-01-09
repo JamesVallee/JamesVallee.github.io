@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FSAE Wheel Centers</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Favicon for Browsers -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/JV Block Logo.png">
+  <!-- Apple bookmark Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/JV Block Logo.png">
+
+  
+    <link rel="stylesheet" href="/assets/css/project.css">
+  
+</head>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+
+  let index = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  // Swipe support
+  let startX = 0;
+
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  track.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) nextBtn.click();
+    if (endX - startX > 50) prevBtn.click();
+  });
+});
+</script>
+
+<body>
+  <!-- Header Nav -->
+  <header>
+    <div class="header-content">
+      <!-- Logo -->
+      <a href="/" class="logo">
+        <img src="/assets/images/JV logo.png" alt="James Vallée Logo">
+      </a>
+
+      <!-- Navigation -->
+      <nav class="nav">
+        <a href="/" class="">Home</a>
+        <a href="/experience/" class="">Experience</a>
+        <a href="/fsae/" class="">FSAE&nbsp;Projects</a>
+        <a href="/personal/" class="">Personal&nbsp;Projects</a>
+        <a href="/about/" class="">About</a>
+        
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- Banner / Hero (full-width) -->
+  
+
+  <!-- Page content -->
+  <main>
+    <article class="project-page">
+  <div class="page-content">
+    <div class="project-section">
+  <div class="section-text">
+    <p class="title">
+      FSAE Wheel Centers
+    </p>
+
+    <p class="overview-intro">
+      This project focused on the redesign of the Formula SAE wheel centers with the objective of 
+      reducing unsprung mass while maintaining durability under fatigue loading. 
+      The components were fully redesigned, analyzed, and validated through simulation 
+      before release for manufacturing.
+    </p>
+
+    <h3>Objectives</h3>
+    <ul>
+      <li>Reduce wheel center mass relative to the previous design</li>
+      <li>Maintain stresses below the fatigue endurance limit</li>
+      <li>Ensure CNC manufacturability and practical tolerancing</li>
+    </ul>
+  </div>
+
+  <div class="section-image">
+    <img src="/assets/images/FSAE/WheelCenter_CAD.png" alt="Wheel Center CAD Model">
+
+    <div class="specs-grid">
+      <div class="spec-item">
+        <label>CAD</label><span>SolidWorks</span>
+      </div>
+      <div class="spec-item">
+        <label>FEA</label><span>ANSYS Mechanical</span>
+      </div>
+      <div class="spec-item">
+        <label>Material</label><span>7075 Aluminum Alloy</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="project-section reverse">
+  <div class="section-text">
+    <h2>Design & Weight Optimization</h2>
+    <p>
+      The wheel centers were modeled in <strong>SolidWorks</strong> and iteratively refined to remove 
+      non-load-bearing material while preserving stiffness in critical load paths.
+      Geometry changes were driven directly by simulation results rather than aesthetic constraints.
+    </p>
+
+    <ul>
+      <li>Front wheel center mass reduced by <strong>24%</strong></li>
+      <li>Rear wheel center mass reduced by <strong>29%</strong></li>
+      <li>Material removal focused on low-stress regions identified through FEA</li>
+    </ul>
+  </div>
+
+  <div class="section-image">
+    <img src="/assets/images/FSAE/WheelCenter_FEA2.png" alt="Wheel Center Stress Plot">
+  </div>
+</div>
+
+<hr>
+
+<div class="project-section">
+  <div class="section-text">
+    <h2>Finite Element Analysis</h2>
+    <p>
+      Structural analysis was performed in <strong>ANSYS Mechanical</strong> to evaluate stress distribution
+      under representative loading conditions. The design was optimized to ensure that peak stresses
+      remained below the material fatigue limit with appropriate safety margin.
+    </p>
+
+    <ul>
+      <li>Static stress evaluation used to guide geometry refinement</li>
+      <li>Stress concentrations identified and reduced through fillet and profile changes</li>
+      <li>Final design validated against fatigue-related stress thresholds</li>
+    </ul>
+  </div>
+
+  <div class="section-image">
+    <img src="/assets/images/FSAE/WheelCenter_FEA.png" alt="Wheel Center FEA Deformation">
+  </div>
+</div>
+
+<hr>
+
+<div class="project-section">
+  <div class="section-text">
+    <h2>Design for Manufacturing</h2>
+    <p>
+      The final design was developed with <strong>CNC manufacturability</strong> in mind.
+      Features were constrained to realistic tooling access, fillet radii, and machining setups
+      to ensure the part could be produced without excessive cost or complexity.
+    </p>
+
+    <ul>
+      <li>Tool access and minimum internal radii considered during design</li>
+      <li>Uniform wall thickness prioritized where possible</li>
+      <li>Tolerances defined to balance performance and manufacturability</li>
+    </ul>
+  </div>
+
+  <div class="section-image">
+    <img src="/assets/images/FSAE/Wheel centers2.jpeg" alt="Wheel Center Machining Setup">
+  </div>
+</div>
+
+<hr>
+
+<div class="image-gallery">
+  <h2>Additional Images</h2>
+  <div class="gallery-grid">
+    <img src="/assets/images/FSAE/Wheel centers3.jpeg" alt="Wheel Center Close-up">
+    <img src="/assets/images/FSAE/Wheel centers1.jpeg" alt="Installed Wheel Center">
+    <img src="/assets/images/FSAE/Wheel centers_Cover.png" alt="Wheel Center on wheel">
+  </div>
+</div>
+
+  </div>
+</article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="page-content">
+      &copy; 2026 James Vallée
+    </div>
+  </footer>
+</body>
+</html>

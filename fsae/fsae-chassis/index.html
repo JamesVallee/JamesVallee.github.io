@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steel Tube Space Frame Chassis</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Favicon for Browsers -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/JV Block Logo.png">
+  <!-- Apple bookmark Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/JV Block Logo.png">
+
+  
+    <link rel="stylesheet" href="/assets/css/project.css">
+  
+</head>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+
+  let index = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  // Swipe support
+  let startX = 0;
+
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  track.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) nextBtn.click();
+    if (endX - startX > 50) prevBtn.click();
+  });
+});
+</script>
+
+<body>
+  <!-- Header Nav -->
+  <header>
+    <div class="header-content">
+      <!-- Logo -->
+      <a href="/" class="logo">
+        <img src="/assets/images/JV logo.png" alt="James Vallée Logo">
+      </a>
+
+      <!-- Navigation -->
+      <nav class="nav">
+        <a href="/" class="">Home</a>
+        <a href="/experience/" class="">Experience</a>
+        <a href="/fsae/" class="">FSAE&nbsp;Projects</a>
+        <a href="/personal/" class="">Personal&nbsp;Projects</a>
+        <a href="/about/" class="">About</a>
+        
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- Banner / Hero (full-width) -->
+  
+
+  <!-- Page content -->
+  <main>
+    <article class="project-page">
+  <div class="page-content">
+    <div class="project-section">
+  <div class="section-text">
+    <p class="title">
+      Steel Tube Space Frame Chassis
+    </p>
+
+    <p class="overview-intro">
+      The chassis is the primary structural and safety system of the car, 
+      supporting all major subsystems while protecting the driver and meeting Formula SAE safety regulations.
+    </p>
+    
+    <h3>Objectives:</h3>
+    <ul>
+      <li>Maximize stiffness-to-weight ratio</li>
+      <li>Increase clearance and rule compliance</li>
+      <li>Improve driver safety and ergonomics</li>
+    </ul>
+
+  </div>
+  
+  <div class="section-image">
+    <img src="/assets/images/FSAE26-FR10001.png" alt="Chassis Render">
+
+    <div class="specs-grid">
+      <div class="spec-item"><label>Material</label><span>4130 Chromoly Steel</span></div>
+      <div class="spec-item"><label>Weight</label><span>69 lbs</span></div>
+      <div class="spec-item"><label>Torsional Stiffness</label><span>2185 Nm/deg</span></div>
+    </div>
+  </div>
+
+</div>
+
+<hr>
+
+<div class="project-section reverse">
+  <div class="section-text">
+    <h2>Finite Element Analysis</h2>
+    <ul>
+      <li>FEA used to analyze stiffness under torsional loading with displacement plots</li>
+      <li>Iterative geometry changes increased stiffness while reducing or maintaining weight</li>
+      <li>Peak stresses were identified with stress plots</li>
+    </ul>
+  </div>
+  
+  <div class="section-image">
+        <img src="/assets/images/Frame_FEA.png" alt="FEA Results">
+  </div>
+</div>
+
+<hr>
+
+<div class="project-section">
+  <div class="section-text">
+    <h2>Jig and Manufacturing</h2>
+    <p>Precise manufacturing was achieved using a CNC MDF jig system and aluminum positioning blocks on a laser cut precision table.</p>
+    <img src="/assets/images/Jig.png" alt="Frame Welding">
+  </div>
+  
+  <div class="section-image">
+    <img src="/assets/images/Welding.png" alt="Manufacturing Jig">
+  </div>
+</div>
+
+
+
+
+  </div>
+</article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="page-content">
+      &copy; 2026 James Vallée
+    </div>
+  </footer>
+</body>
+</html>

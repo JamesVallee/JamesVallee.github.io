@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Projects</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Favicon for Browsers -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/JV Block Logo.png">
+  <!-- Apple bookmark Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/JV Block Logo.png">
+
+  
+</head>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const nextBtn = document.querySelector('.carousel-btn.next');
+  const prevBtn = document.querySelector('.carousel-btn.prev');
+
+  let index = 0;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  // Swipe support
+  let startX = 0;
+
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  track.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) nextBtn.click();
+    if (endX - startX > 50) prevBtn.click();
+  });
+});
+</script>
+
+<body>
+  <!-- Header Nav -->
+  <header>
+    <div class="header-content">
+      <!-- Logo -->
+      <a href="/" class="logo">
+        <img src="/assets/images/JV logo.png" alt="James Vallée Logo">
+      </a>
+
+      <!-- Navigation -->
+      <nav class="nav">
+        <a href="/" class="">Home</a>
+        <a href="/experience/" class="">Experience</a>
+        <a href="/fsae/" class="">FSAE&nbsp;Projects</a>
+        <a href="/personal/" class="active">Personal&nbsp;Projects</a>
+        <a href="/about/" class="">About</a>
+        
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- Banner / Hero (full-width) -->
+  
+  <section class="banner" style="background-image: url('/assets/images/black.png');">
+    <div class="overlay"></div>
+    <div class="banner-content">
+      <h1>Personal Projects</h1>
+      
+    </div>
+  </section>
+  
+
+  <!-- Page content -->
+  <main>
+    <section class="project-grid">
+  
+    <div class="coming-soon">
+      <p>🚧 Personal projects are coming soon! 🚧</p>
+    </div>
+  
+</section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="page-content">
+      &copy; 2026 James Vallée
+    </div>
+  </footer>
+</body>
+</html>
