@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Projects | James Vallée</title>
+  <meta name="description" content="Mechanical Engineering Portfolio — James Vallée">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Project / experience detail stylesheet (opt-in via front matter) -->
+  
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/JVfavicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/JVfavicon.png">
+</head>
+
+<body data-theme="personal">
+
+  <!-- ═══════════════════════ HEADER / NAV ═══════════════════════ -->
+  <header id="site-header">
+    <div class="header-content">
+
+      <!-- Logo with accent-tinted backdrop -->
+      <a href="/" class="logo" aria-label="James Vallée Home">
+        <span class="logo-bg"></span>
+        <img src="/assets/images/JV_logo-removebg.png" alt="JV">
+      </a>
+
+      <!-- Desktop nav -->
+      <nav id="main-nav" aria-label="Main navigation">
+        <a href="/" class="">Home</a>
+        <a href="/experience/" class="">Experience</a>
+        <a href="/fsae/" class="">FSAE&nbsp;Projects</a>
+        <a href="/personal/" class="active">Personal&nbsp;Projects</a>
+        <a href="/about/" class="">About</a>
+      </nav>
+
+      <!-- Burger button (mobile only) -->
+      <button class="burger" id="burger-btn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ═══════════════════════ BANNER / HERO ═══════════════════════ -->
+  
+  <section class="banner" role="banner" aria-label="Personal Projects">
+    <div class="banner__bg" style="background-image: url('/assets/images/black.png');"></div>
+    <div class="banner__scrim"></div>
+    <div class="banner-content">
+      <h1>Personal Projects</h1>
+      
+    </div>
+  </section>
+  
+
+  <!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
+  <main class="has-banner">
+    <section class="project-grid">
+  
+    <div class="coming-soon">
+      <p>🚧 Personal projects are coming soon! 🚧</p>
+    </div>
+  
+</section>
+
+  </main>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer>
+    <div class="page-content">
+      &copy; 2026 James Vallée
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+  <script>
+  // ── 1. Nav: go solid/frosted on scroll ──────────────────────────
+  (function () {
+    var header = document.getElementById('site-header');
+    if (!header) return;
+
+    function updateHeader() {
+      if (header.classList.contains('menu-open')) {
+        header.classList.remove('scrolled');
+        return;
+      }
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }
+
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader);
+    updateHeader();
+  })();
+
+  // ── 2. Burger / mobile nav toggle ───────────────────────────────
+  (function () {
+    var btn = document.getElementById('burger-btn');
+    var nav = document.getElementById('main-nav');
+    var header = document.getElementById('site-header');
+    if (!btn || !nav) return;
+
+    function setMenuState(open) {
+      nav.classList.toggle('nav--open', open);
+      btn.classList.toggle('burger--open', open);
+      btn.setAttribute('aria-expanded', open);
+      if (header) {
+        header.classList.toggle('menu-open', open);
+        if (open) {
+          header.classList.remove('scrolled');
+        } else {
+          header.classList.toggle('scrolled', window.scrollY > 40);
+        }
+      }
+    }
+
+    btn.addEventListener('click', function () {
+      var open = !nav.classList.contains('nav--open');
+      if (header) {
+        header.classList.remove('scrolled');
+        header.classList.toggle('menu-open', open);
+      }
+      setMenuState(open);
+    });
+
+    // Close on link click (single-page feel)
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        setMenuState(false);
+      });
+    });
+  })();
+
+  // ── 3. Scroll-reveal ─────────────────────────────────────────────
+  (function () {
+    var targets = document.querySelectorAll(
+      '.experience-highlight, .experience-card, .collection-item, .project-item, .section-text, .section-image, .section-image-brp, .overview-block, .tools-skills-highlight, .about-hero, .about-body, .about-bio, .about-skills'
+    );
+    targets.forEach(function (el) { el.classList.add('reveal'); });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      targets.forEach(function (el) { io.observe(el); });
+    } else {
+      targets.forEach(function (el) { el.classList.add('visible'); });
+    }
+  })();
+
+  // ── 4. Carousel (NRC page) ───────────────────────────────────────
+  (function () {
+    var track = document.querySelector('.carousel-track');
+    if (!track) return;
+    var slides = Array.from(track.children);
+    var nextBtn = document.querySelector('.carousel-btn.next');
+    var prevBtn = document.querySelector('.carousel-btn.prev');
+    var index = 0;
+    function go() { track.style.transform = 'translateX(-' + (index * 100) + '%)'; }
+    if (nextBtn) nextBtn.addEventListener('click', function () { index = (index + 1) % slides.length; go(); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { index = (index - 1 + slides.length) % slides.length; go(); });
+    var sx = 0;
+    track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function (e) {
+      var dx = sx - e.changedTouches[0].clientX;
+      if (dx > 50 && nextBtn) nextBtn.click();
+      if (dx < -50 && prevBtn) prevBtn.click();
+    });
+  })();
+  </script>
+
+</body>
+</html>

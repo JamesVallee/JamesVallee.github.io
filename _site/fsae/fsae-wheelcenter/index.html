@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FSAE Wheel Centers | James Vallée</title>
+  <meta name="description" content="Mechanical Engineering Portfolio — James Vallée">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Project / experience detail stylesheet (opt-in via front matter) -->
+  
+    <link rel="stylesheet" href="/assets/css/project.css">
+  
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/JVfavicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/JVfavicon.png">
+</head>
+
+<body data-theme="fsae-light">
+
+  <!-- ═══════════════════════ HEADER / NAV ═══════════════════════ -->
+  <header id="site-header">
+    <div class="header-content">
+
+      <!-- Logo with accent-tinted backdrop -->
+      <a href="/" class="logo" aria-label="James Vallée Home">
+        <span class="logo-bg"></span>
+        <img src="/assets/images/JV_logo-removebg.png" alt="JV">
+      </a>
+
+      <!-- Desktop nav -->
+      <nav id="main-nav" aria-label="Main navigation">
+        <a href="/" class="">Home</a>
+        <a href="/experience/" class="">Experience</a>
+        <a href="/fsae/" class="">FSAE&nbsp;Projects</a>
+        <a href="/personal/" class="">Personal&nbsp;Projects</a>
+        <a href="/about/" class="">About</a>
+      </nav>
+
+      <!-- Burger button (mobile only) -->
+      <button class="burger" id="burger-btn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ═══════════════════════ BANNER / HERO ═══════════════════════ -->
+  
+
+  <!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
+  <main class="">
+    <article class="project-page">
+  <div class="page-content">
+    <div class="project-section">
+  <div class="section-text">
+    <p class="title">
+      FSAE Wheel Centers
+    </p>
+
+    <p class="overview-intro">
+      This project focused on the redesign of the Formula SAE wheel centers with the objective of 
+      reducing unsprung mass while maintaining durability under fatigue loading. 
+      The components were fully redesigned, analyzed, and validated through simulation 
+      before release for manufacturing.
+    </p>
+
+    <h3>Objectives</h3>
+    <ul>
+      <li>Reduce wheel center mass relative to the previous design</li>
+      <li>Maintain stresses below the fatigue endurance limit</li>
+      <li>Ensure CNC manufacturability and practical tolerancing</li>
+    </ul>
+  </div>
+
+  <div class="section-image">
+    <img src="/assets/images/FSAE/WheelCenter_CAD.png" alt="Wheel Center CAD Model">
+
+    <div class="specs-grid">
+      <div class="spec-item">
+        <label>CAD</label><span>SolidWorks</span>
+      </div>
+      <div class="spec-item">
+        <label>FEA</label><span>ANSYS Mechanical</span>
+      </div>
+      <div class="spec-item">
+        <label>Material</label><span>7075 Aluminum Alloy</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="project-section reverse">
+  <div class="section-text">
+    <h2>Design & Weight Optimization</h2>
+    <p>
+      The wheel centers were modeled in <strong>SolidWorks</strong> and iteratively refined to remove 
+      non-load-bearing material while preserving stiffness in critical load paths.
+      Geometry changes were driven directly by simulation results rather than aesthetic constraints.
+    </p>
+
+    <ul>
+      <li>Front wheel center mass reduced by <strong>24%</strong></li>
+      <li>Rear wheel center mass reduced by <strong>29%</strong></li>
+      <li>Material removal focused on low-stress regions identified through FEA</li>
+    </ul>
+  </div>
+
+  <div class="section-image">
+    <img src="/assets/images/FSAE/WheelCenter_FEA2.png" alt="Wheel Center Stress Plot">
+  </div>
+</div>
+
+<hr>
+
+<div class="project-section">
+  <div class="section-text">
+    <h2>Finite Element Analysis</h2>
+    <p>
+      Structural analysis was performed in <strong>ANSYS Mechanical</strong> to evaluate stress distribution
+      under representative loading conditions. The design was optimized to ensure that peak stresses
+      remained below the material fatigue limit with appropriate safety margin.
+    </p>
+
+    <ul>
+      <li>Static stress evaluation used to guide geometry refinement</li>
+      <li>Stress concentrations identified and reduced through fillet and profile changes</li>
+      <li>Final design validated against fatigue-related stress thresholds</li>
+    </ul>
+  </div>
+
+  <div class="section-image">
+    <img src="/assets/images/FSAE/WheelCenter_FEA.png" alt="Wheel Center FEA Deformation">
+  </div>
+</div>
+
+<hr>
+
+<div class="project-section">
+  <div class="section-text">
+    <h2>Design for Manufacturing</h2>
+    <p>
+      The final design was developed with <strong>CNC manufacturability</strong> in mind.
+      Features were constrained to realistic tooling access, fillet radii, and machining setups
+      to ensure the part could be produced without excessive cost or complexity.
+    </p>
+
+    <ul>
+      <li>Tool access and minimum internal radii considered during design</li>
+      <li>Uniform wall thickness prioritized where possible</li>
+      <li>Tolerances defined to balance performance and manufacturability</li>
+    </ul>
+  </div>
+
+  <div class="section-image">
+    <img src="/assets/images/FSAE/Wheel centers2.jpeg" alt="Wheel Center Machining Setup">
+  </div>
+</div>
+
+<hr>
+
+<div class="image-gallery">
+  <h2>Additional Images</h2>
+  <div class="gallery-grid">
+    <img src="/assets/images/FSAE/Wheel centers3.jpeg" alt="Wheel Center Close-up">
+    <img src="/assets/images/FSAE/Wheel centers1.jpeg" alt="Installed Wheel Center">
+    <img src="/assets/images/FSAE/Wheel centers_Cover.png" alt="Wheel Center on wheel">
+  </div>
+</div>
+
+  </div>
+</article>
+  </main>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer>
+    <div class="page-content">
+      &copy; 2026 James Vallée
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+  <script>
+  // ── 1. Nav: go solid/frosted on scroll ──────────────────────────
+  (function () {
+    var header = document.getElementById('site-header');
+    if (!header) return;
+
+    function updateHeader() {
+      if (header.classList.contains('menu-open')) {
+        header.classList.remove('scrolled');
+        return;
+      }
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }
+
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader);
+    updateHeader();
+  })();
+
+  // ── 2. Burger / mobile nav toggle ───────────────────────────────
+  (function () {
+    var btn = document.getElementById('burger-btn');
+    var nav = document.getElementById('main-nav');
+    var header = document.getElementById('site-header');
+    if (!btn || !nav) return;
+
+    function setMenuState(open) {
+      nav.classList.toggle('nav--open', open);
+      btn.classList.toggle('burger--open', open);
+      btn.setAttribute('aria-expanded', open);
+      if (header) {
+        header.classList.toggle('menu-open', open);
+        if (open) {
+          header.classList.remove('scrolled');
+        } else {
+          header.classList.toggle('scrolled', window.scrollY > 40);
+        }
+      }
+    }
+
+    btn.addEventListener('click', function () {
+      var open = !nav.classList.contains('nav--open');
+      if (header) {
+        header.classList.remove('scrolled');
+        header.classList.toggle('menu-open', open);
+      }
+      setMenuState(open);
+    });
+
+    // Close on link click (single-page feel)
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        setMenuState(false);
+      });
+    });
+  })();
+
+  // ── 3. Scroll-reveal ─────────────────────────────────────────────
+  (function () {
+    var targets = document.querySelectorAll(
+      '.experience-highlight, .experience-card, .collection-item, .project-item, .section-text, .section-image, .section-image-brp, .overview-block, .tools-skills-highlight, .about-hero, .about-body, .about-bio, .about-skills'
+    );
+    targets.forEach(function (el) { el.classList.add('reveal'); });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      targets.forEach(function (el) { io.observe(el); });
+    } else {
+      targets.forEach(function (el) { el.classList.add('visible'); });
+    }
+  })();
+
+  // ── 4. Carousel (NRC page) ───────────────────────────────────────
+  (function () {
+    var track = document.querySelector('.carousel-track');
+    if (!track) return;
+    var slides = Array.from(track.children);
+    var nextBtn = document.querySelector('.carousel-btn.next');
+    var prevBtn = document.querySelector('.carousel-btn.prev');
+    var index = 0;
+    function go() { track.style.transform = 'translateX(-' + (index * 100) + '%)'; }
+    if (nextBtn) nextBtn.addEventListener('click', function () { index = (index + 1) % slides.length; go(); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { index = (index - 1 + slides.length) % slides.length; go(); });
+    var sx = 0;
+    track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function (e) {
+      var dx = sx - e.changedTouches[0].clientX;
+      if (dx > 50 && nextBtn) nextBtn.click();
+      if (dx < -50 && prevBtn) prevBtn.click();
+    });
+  })();
+  </script>
+
+</body>
+</html>

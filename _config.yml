@@ -1,0 +1,14 @@
+title: James Vallée Portfolio
+baseurl: ""
+url: "https://jamesvallee.ca"
+theme: minima
+collections:
+  fsae:
+    output: true
+    permalink: /fsae/:name/
+  personal:
+    output: true
+    permalink: /personal/:name/
+  experience:
+    output: true
+    permalink: /experience/:name/
