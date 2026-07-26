@@ -41,7 +41,7 @@ load_project_css: true
 
     <div class="about-bio">
       <h2 class="about-section-head">Background</h2>
-      <p>Hello, I'm <strong>James Vallée</strong>, a mechanical engineering graduate with hands-on experience in vehicle systems, composites, and structural design. I have worked in both research and industry environments — from aerospace structures at the NRC to vehicle dynamics at Bombardier Recreational Products, and I'm currently an ECAP Structures engineer at Bombardier Aerospace in Montréal. I'm also an active Formula SAE uOttawa member.</p>
+      <p>Hello, I'm <strong>James Vallée</strong>, a mechanical engineering graduate with hands-on experience in vehicle systems, composites, and structural design. I have worked in both research and industry environments, from aerospace structures at the NRC to vehicle dynamics at Bombardier Recreational Products, and I'm currently an ECAP Structures engineer at Bombardier Aerospace in Montréal.</p>
       <p>This portfolio highlights the projects, research, and practical experience I've gained across multiple engineering disciplines, with a focus on performance, innovation, and problem-solving in real-world applications.</p>
     </div>
 
