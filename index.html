@@ -36,7 +36,12 @@ subtitle: Mechanical Engineering Portfolio
           <div class="card-logo-overlay">
             <img src="/assets/images/BRP_inc_logo__1_-removebg-preview.png" alt="BRP">
           </div>
-          <img src="/assets/images/BRP_Cover.jpeg" alt="BRP">
+          <img src="/assets/images/BRP_Cover-mobile.webp"
+               data-src="/assets/images/BRP_Cover.jpeg"
+               alt="BRP"
+               loading="lazy"
+               decoding="async"
+               class="mobile-optimized-image">
         </div>
         <div class="card-content">
           <span class="card-company">Bombardier Recreational Products,<br>Valcourt, Québec</span>
@@ -57,7 +62,12 @@ subtitle: Mechanical Engineering Portfolio
           <div class="card-logo-overlay">
             <img src="/assets/images/NRCC_logo.png" alt="NRC">
           </div>
-          <img src="/assets/images/NRC_Cover.jpg" alt="NRC Aircraft">
+          <img src="/assets/images/NRC_Cover-mobile.webp"
+               data-src="/assets/images/NRC_Cover.jpg"
+               alt="NRC Aircraft"
+               loading="lazy"
+               decoding="async"
+               class="mobile-optimized-image">
         </div>
         <div class="card-content">
           <span class="card-company">National Research Council Canada,<br>Ottawa, Ontario</span>
@@ -74,12 +84,17 @@ subtitle: Mechanical Engineering Portfolio
       </div>
 
       <!-- DCC — card only, no detail page -->
-      <div class="experience-card card--dcc reveal">
+      <div class="experience-card reveal card--dcc">
         <div class="card-image">
           <div class="card-logo-overlay">
             <img src="/assets/images/57bc5ad292577e1c9cba08db2a23b2ef.png" alt="DCC">
           </div>
-          <img src="/assets/images/DCC_Cover.jpg" alt="DCC Office">
+          <img src="/assets/images/DCC_Cover-mobile.webp"
+               data-src="/assets/images/DCC_Cover.jpg"
+               alt="DCC Office"
+               loading="lazy"
+               decoding="async"
+               class="mobile-optimized-image">
         </div>
         <div class="card-content">
           <span class="card-company">Defence Construction Canada,<br>Montréal, Québec</span>
@@ -101,11 +116,11 @@ subtitle: Mechanical Engineering Portfolio
   <div class="page-content">
     <h2>Explore My Work</h2>
     <div class="collection-grid">
-      <a href="{{ '/fsae/' | relative_url }}" class="collection-item reveal"
+      <a href="{{ '/fsae/' | relative_url }}" class="collection-item"
          style="background-image: url('/assets/images/DSC01991.webp');">
         <div class="overlay"><div class="overlay-content"><h3>FSAE Projects</h3></div></div>
       </a>
-      <a href="{{ '/personal/' | relative_url }}" class="collection-item reveal"
+      <a href="{{ '/personal/' | relative_url }}" class="collection-item"
          style="background-image: url('/assets/images/black.png');">
         <div class="overlay"><div class="overlay-content"><h3>Personal Projects</h3></div></div>
       </a>
@@ -119,7 +134,7 @@ subtitle: Mechanical Engineering Portfolio
     <div class="project-grid">
       {% assign all_projects = site.fsae | concat: site.personal | sort: 'title' %}
       {% for project in all_projects %}
-        <a href="{{ project.url }}" class="project-item reveal"
+        <a href="{{ project.url }}" class="project-item"
            style="background-image: url('{{ project.image }}');">
           <div class="overlay">
             <div class="overlay-content">

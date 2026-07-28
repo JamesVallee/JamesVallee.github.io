@@ -12,7 +12,12 @@ load_project_css: true
   <!-- ── Hero row: photo + identity ── -->
   <div class="about-hero">
     <div class="about-photo-wrap">
-      <img src="/assets/images/about_Headshot.jpg" alt="James Vallée" class="profile-picture">
+      <img src="/assets/images/about_Headshot-mobile.webp"
+           data-src="/assets/images/about_Headshot.jpg"
+           alt="James Vallée"
+           class="profile-picture"
+           loading="lazy"
+           decoding="async">
     </div>
 
     <div class="about-identity">

@@ -56,6 +56,7 @@
   <section class="banner" role="banner" aria-label="James Vallée">
     <div class="banner__bg" style="background-image: url('/assets/images/fsae_ic_25_00446.webp');"></div>
     <div class="banner__scrim"></div>
+    <div class="banner__grain" aria-hidden="true"></div>
     <div class="banner-content">
       <h1>James Vallée</h1>
       
@@ -96,7 +97,12 @@
           <div class="card-logo-overlay">
             <img src="/assets/images/BRP_inc_logo__1_-removebg-preview.png" alt="BRP">
           </div>
-          <img src="/assets/images/BRP_Cover.jpeg" alt="BRP">
+          <img src="/assets/images/BRP_Cover-mobile.webp"
+               data-src="/assets/images/BRP_Cover.jpeg"
+               alt="BRP"
+               loading="lazy"
+               decoding="async"
+               class="mobile-optimized-image">
         </div>
         <div class="card-content">
           <span class="card-company">Bombardier Recreational Products,<br>Valcourt, Québec</span>
@@ -117,7 +123,12 @@
           <div class="card-logo-overlay">
             <img src="/assets/images/NRCC_logo.png" alt="NRC">
           </div>
-          <img src="/assets/images/NRC_Cover.jpg" alt="NRC Aircraft">
+          <img src="/assets/images/NRC_Cover-mobile.webp"
+               data-src="/assets/images/NRC_Cover.jpg"
+               alt="NRC Aircraft"
+               loading="lazy"
+               decoding="async"
+               class="mobile-optimized-image">
         </div>
         <div class="card-content">
           <span class="card-company">National Research Council Canada,<br>Ottawa, Ontario</span>
@@ -134,12 +145,17 @@
       </div>
 
       <!-- DCC — card only, no detail page -->
-      <div class="experience-card card--dcc reveal">
+      <div class="experience-card reveal card--dcc">
         <div class="card-image">
           <div class="card-logo-overlay">
             <img src="/assets/images/57bc5ad292577e1c9cba08db2a23b2ef.png" alt="DCC">
           </div>
-          <img src="/assets/images/DCC_Cover.jpg" alt="DCC Office">
+          <img src="/assets/images/DCC_Cover-mobile.webp"
+               data-src="/assets/images/DCC_Cover.jpg"
+               alt="DCC Office"
+               loading="lazy"
+               decoding="async"
+               class="mobile-optimized-image">
         </div>
         <div class="card-content">
           <span class="card-company">Defence Construction Canada,<br>Montréal, Québec</span>
@@ -161,11 +177,11 @@
   <div class="page-content">
     <h2>Explore My Work</h2>
     <div class="collection-grid">
-      <a href="/fsae/" class="collection-item reveal"
+      <a href="/fsae/" class="collection-item"
          style="background-image: url('/assets/images/DSC01991.webp');">
         <div class="overlay"><div class="overlay-content"><h3>FSAE Projects</h3></div></div>
       </a>
-      <a href="/personal/" class="collection-item reveal"
+      <a href="/personal/" class="collection-item"
          style="background-image: url('/assets/images/black.png');">
         <div class="overlay"><div class="overlay-content"><h3>Personal Projects</h3></div></div>
       </a>
@@ -179,7 +195,7 @@
     <div class="project-grid">
       
       
-        <a href="/fsae/fsae-nose/" class="project-item reveal"
+        <a href="/fsae/fsae-nose/" class="project-item"
            style="background-image: url('/assets/images/FSAE/Nose_CAD_Detail.png');">
           <div class="overlay">
             <div class="overlay-content">
@@ -189,7 +205,7 @@
           </div>
         </a>
       
-        <a href="/fsae/fsae-wheelcenter/" class="project-item reveal"
+        <a href="/fsae/fsae-wheelcenter/" class="project-item"
            style="background-image: url('/assets/images/FSAE/Wheel centers_Cover.png');">
           <div class="overlay">
             <div class="overlay-content">
@@ -199,7 +215,7 @@
           </div>
         </a>
       
-        <a href="/fsae/fsae-chassis/" class="project-item reveal"
+        <a href="/fsae/fsae-chassis/" class="project-item"
            style="background-image: url('/assets/images/FSAE26-FR10001.png');">
           <div class="overlay">
             <div class="overlay-content">
@@ -283,16 +299,30 @@
   // ── 3. Scroll-reveal ─────────────────────────────────────────────
   (function () {
     var targets = document.querySelectorAll(
-      '.experience-highlight, .experience-card, .collection-item, .project-item, .section-text, .section-image, .section-image-brp, .overview-block, .tools-skills-highlight, .about-hero, .about-body, .about-bio, .about-skills'
+      '.experience-highlight, .experience-card, .section-text, .section-image, .section-image-brp, .overview-block, .tools-skills-highlight, .about-hero, .about-body, .about-bio, .about-skills'
     );
-    targets.forEach(function (el) { el.classList.add('reveal'); });
+
+    targets.forEach(function (el) {
+      el.classList.add('reveal');
+    });
+
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            io.unobserve(e.target);
+          }
         });
-      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-      targets.forEach(function (el) { io.observe(el); });
+      }, { threshold: 0.02, rootMargin: '0px 0px -8% 0px' });
+
+      targets.forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight + 120) {
+          el.classList.add('visible');
+        } else {
+          io.observe(el);
+        }
+      });
     } else {
       targets.forEach(function (el) { el.classList.add('visible'); });
     }
@@ -315,6 +345,261 @@
       var dx = sx - e.changedTouches[0].clientX;
       if (dx > 50 && nextBtn) nextBtn.click();
       if (dx < -50 && prevBtn) prevBtn.click();
+    });
+  })();
+
+  // ── 5. Custom cursor (fine-pointer / hover-capable devices only) ──
+  (function () {
+    if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    var dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    var ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+    document.body.classList.add('has-custom-cursor');
+
+    var mouseX = -100, mouseY = -100, ringX = -100, ringY = -100, primed = false;
+
+    window.addEventListener('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.transform = 'translate(' + mouseX + 'px,' + mouseY + 'px) translate(-50%,-50%)';
+      if (!primed) { ringX = mouseX; ringY = mouseY; primed = true; }
+    });
+
+    function tick() {
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      ring.style.transform = 'translate(' + ringX + 'px,' + ringY + 'px) translate(-50%,-50%)';
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    var hoverSelector = 'a, button, .learn-more-btn, input, textarea, select, [role="button"]';
+    document.addEventListener('mouseover', function (e) {
+      if (e.target.closest && e.target.closest(hoverSelector)) {
+        document.body.classList.add('cursor-hover');
+      }
+    });
+    document.addEventListener('mouseout', function (e) {
+      if (e.target.closest && e.target.closest(hoverSelector)) {
+        document.body.classList.remove('cursor-hover');
+      }
+    });
+
+    document.addEventListener('mouseleave', function () { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+    document.addEventListener('mouseenter', function () { dot.style.opacity = '1'; ring.style.opacity = ''; });
+  })();
+
+  // ── 6. Hero title — split into letters for staggered fade+rise ────
+  (function () {
+    var h1 = document.querySelector('.banner-content h1');
+    if (!h1) return;
+    var text = h1.textContent;
+    h1.setAttribute('aria-label', text);
+    h1.innerHTML = '';
+    var i = 0;
+    text.split('').forEach(function (ch) {
+      var span = document.createElement('span');
+      span.className = 'letter';
+      span.setAttribute('aria-hidden', 'true');
+      span.textContent = (ch === ' ') ? '\u00A0' : ch;
+      span.style.animationDelay = (i * 0.035) + 's';
+      h1.appendChild(span);
+      i++;
+    });
+  })();
+
+  // ── 7. Nav — sliding pill follows hovered link, rests on active ───
+  (function () {
+    var nav = document.getElementById('main-nav');
+    if (!nav) return;
+
+    var pill = document.createElement('span');
+    pill.className = 'nav-pill';
+    pill.setAttribute('aria-hidden', 'true');
+    nav.insertBefore(pill, nav.firstChild);
+
+    var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+
+    function moveTo(el) {
+      var navRect = nav.getBoundingClientRect();
+      var r = el.getBoundingClientRect();
+      nav.style.setProperty('--pill-x', (r.left - navRect.left) + 'px');
+      nav.style.setProperty('--pill-y', (r.top - navRect.top) + 'px');
+      nav.style.setProperty('--pill-w', r.width + 'px');
+      nav.style.setProperty('--pill-h', r.height + 'px');
+    }
+
+    function restToActive() {
+      var active = nav.querySelector('a.active');
+      if (active) {
+        moveTo(active);
+        nav.classList.add('nav-pill-active');
+      } else {
+        nav.classList.remove('nav-pill-active');
+      }
+    }
+
+    links.forEach(function (a) {
+      a.addEventListener('mouseenter', function () {
+        moveTo(a);
+        nav.classList.add('nav-pill-active');
+      });
+    });
+
+    nav.addEventListener('mouseleave', restToActive);
+    window.addEventListener('resize', restToActive);
+
+    // Reposition after the mobile menu opens/closes (layout changes from display:none)
+    var burgerBtn = document.getElementById('burger-btn');
+    if (burgerBtn) burgerBtn.addEventListener('click', function () { setTimeout(restToActive, 50); });
+
+    restToActive();
+  })();
+
+  // ── 8. Project detail pages — image zoom lightbox ───────────────
+  (function () {
+    var galleryImages = document.querySelectorAll('.image-gallery .gallery-grid img');
+    if (!galleryImages.length) return;
+
+    var modal = document.createElement('div');
+    modal.className = 'image-zoom-modal';
+    modal.setAttribute('aria-hidden', 'true');
+    modal.innerHTML = '<div class="image-zoom-backdrop"></div><div class="image-zoom-panel"><button class="image-zoom-close" type="button" aria-label="Close image">×</button><img alt="Expanded project image"></div>';
+    document.body.appendChild(modal);
+
+    var panel = modal.querySelector('.image-zoom-panel');
+    var image = modal.querySelector('.image-zoom-panel img');
+    var closeBtn = modal.querySelector('.image-zoom-close');
+
+    function open(img) {
+      image.src = img.currentSrc || img.src;
+      image.alt = img.alt || '';
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    }
+
+    function close() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    }
+
+    galleryImages.forEach(function (img) {
+      img.classList.add('zoomable-image');
+      img.setAttribute('role', 'button');
+      img.setAttribute('tabindex', '0');
+      img.addEventListener('click', function () { open(img); });
+      img.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          open(img);
+        }
+      });
+    });
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal || e.target.classList.contains('image-zoom-backdrop')) {
+        close();
+      }
+    });
+    closeBtn.addEventListener('click', close);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+    });
+  })();
+
+  // ── 9. Specs grid — count up numeric values on scroll-enter ───────
+  (function () {
+    var spans = document.querySelectorAll('.spec-item span');
+    if (!spans.length || !('IntersectionObserver' in window)) return;
+
+    var numRe = /^(-?\d+(?:\.\d+)?)/;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+
+        var el = entry.target;
+        var text = el.textContent.trim();
+        var match = text.match(numRe);
+        if (!match) return; // non-numeric spec (e.g. "SolidWorks") — leave untouched
+
+        var target = parseFloat(match[1]);
+        var suffix = text.slice(match[1].length);
+        var decimals = (match[1].split('.')[1] || '').length;
+        var duration = 900;
+        var start = null;
+
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = (target * eased).toFixed(decimals) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+          else el.textContent = target.toFixed(decimals) + suffix;
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.4 });
+
+    spans.forEach(function (el) { io.observe(el); });
+  })();
+
+  // ── 10. Mobile image lazy-loading fallback ──────────────────────
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+
+    var images = document.querySelectorAll('img[data-src]');
+    if (!images.length) return;
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var img = entry.target;
+        img.src = img.getAttribute('data-src');
+        img.removeAttribute('data-src');
+        io.unobserve(img);
+      });
+    }, { rootMargin: '200px 0px' });
+
+    images.forEach(function (img) { io.observe(img); });
+  })();
+
+  // ── 11. Smooth page transitions on internal link clicks ───────────
+  (function () {
+    var main = document.querySelector('main');
+    if (!main) return;
+
+    // Fade the new page in on load
+    main.classList.add('main-fade');
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { main.classList.remove('main-fade'); });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var link = e.target.closest && e.target.closest('a[href]');
+      if (!link) return;
+      if (link.target && link.target !== '_self') return;
+      if (link.hasAttribute('download')) return;
+
+      var href = link.getAttribute('href');
+      if (!href || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+
+      var url;
+      try { url = new URL(link.href, window.location.href); } catch (err) { return; }
+      if (url.origin !== window.location.origin) return;
+      // Let same-page anchor links (e.g. "#section") scroll normally
+      if (url.pathname === window.location.pathname && url.hash) return;
+
+      e.preventDefault();
+      main.classList.add('main-fade');
+      setTimeout(function () { window.location.href = link.href; }, 200);
     });
   })();
   </script>
