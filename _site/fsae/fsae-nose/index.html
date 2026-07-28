@@ -261,26 +261,39 @@
       el.classList.add('reveal');
     });
 
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            io.unobserve(e.target);
+    function revealNow() {
+      targets.forEach(function (el) {
+        el.classList.add('visible');
+      });
+    }
+
+    function initReveal() {
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.02, rootMargin: '0px 0px -8% 0px' });
+
+        targets.forEach(function (el) {
+          if (el.getBoundingClientRect().top < window.innerHeight + 120) {
+            el.classList.add('visible');
+          } else {
+            io.observe(el);
           }
         });
-      }, { threshold: 0.02, rootMargin: '0px 0px -8% 0px' });
-
-      targets.forEach(function (el) {
-        if (el.getBoundingClientRect().top < window.innerHeight + 120) {
-          el.classList.add('visible');
-        } else {
-          io.observe(el);
-        }
-      });
-    } else {
-      targets.forEach(function (el) { el.classList.add('visible'); });
+      } else {
+        revealNow();
+      }
     }
+
+    initReveal();
+    window.addEventListener('pageshow', function () {
+      revealNow();
+    });
   })();
 
   // ── 4. Carousel (NRC page) ───────────────────────────────────────
@@ -525,36 +538,21 @@
     images.forEach(function (img) { io.observe(img); });
   })();
 
-  // ── 11. Smooth page transitions on internal link clicks ───────────
+  // ── 11. Restore content visibility on history navigation ───────
   (function () {
     var main = document.querySelector('main');
     if (!main) return;
 
-    // Fade the new page in on load
-    main.classList.add('main-fade');
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () { main.classList.remove('main-fade'); });
-    });
+    function showMain() {
+      main.classList.remove('main-fade');
+      main.style.opacity = '1';
+      main.style.transform = 'none';
+    }
 
-    document.addEventListener('click', function (e) {
-      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      var link = e.target.closest && e.target.closest('a[href]');
-      if (!link) return;
-      if (link.target && link.target !== '_self') return;
-      if (link.hasAttribute('download')) return;
+    showMain();
 
-      var href = link.getAttribute('href');
-      if (!href || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
-
-      var url;
-      try { url = new URL(link.href, window.location.href); } catch (err) { return; }
-      if (url.origin !== window.location.origin) return;
-      // Let same-page anchor links (e.g. "#section") scroll normally
-      if (url.pathname === window.location.pathname && url.hash) return;
-
-      e.preventDefault();
-      main.classList.add('main-fade');
-      setTimeout(function () { window.location.href = link.href; }, 200);
+    window.addEventListener('pageshow', function (event) {
+      showMain();
     });
   })();
   </script>
