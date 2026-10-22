@@ -11,9 +11,9 @@
 
 :root {
   /* Charcoal & Slate — Home / default */
-  --bg:          #12161b;
-  --bg-alt:      #1a2027;
-  --surface:     #20262d;
+  --bg:          #292c2e;
+  --bg-alt:      #1b1d20;
+  --surface:     #313235;
   --surface-alt: #27313a;
   --border:      rgba(140, 154, 167, 0.16);
   --accent:      #9aa7b2;
@@ -26,7 +26,7 @@
   /* Typography scale */
   --font-head:  'Cinzel', Georgia, serif;
   --font-body:  'Inter', system-ui, sans-serif;
-  --font-mono:  'IBM Plex Mono', 'Courier New', monospace;
+  --font-mono:  'Monospac821 BT', 'Courier New', monospace;
 
   /* Motion */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -97,7 +97,7 @@ body[data-theme="fsae"] {
   --surface:     #181818;
   --surface-alt: #202020;
   --border:      rgba(209,85,75,0.18);
-  --accent:      #d1554b;
+  --accent:      #ff2828;
   --accent-dim:  rgba(209,85,75,0.12);
   --accent-glow: rgba(209,85,75,0.25);
   --text:        #e8d8d6;
@@ -107,17 +107,17 @@ body[data-theme="fsae"] {
 
 /* ── Personal Projects ── */
 body[data-theme="personal"] {
-  --bg:          #171812;
+  --bg:          #121812;
   --bg-alt:      #1d1e16;
-  --surface:     #24261a;
-  --surface-alt: #2e3020;
-  --border:      rgba(168,176,106,0.15);
-  --accent:      #a8b06a;
-  --accent-dim:  rgba(168,176,106,0.12);
+  --surface:     #1a261a;
+  --surface-alt: #223020;
+  --border:      rgba(108, 176, 106, 0.15);
+  --accent:      #78b06a;
+  --accent-dim:  rgba(118, 176, 106, 0.12);
   --accent-glow: rgba(168,176,106,0.22);
-  --text:        #dde4c0;
-  --text-muted:  #70804a;
-  --text-dim:    #485430;
+  --text:        #cee4c0;
+  --text-muted:  #4a8056;
+  --text-dim:    #305433;
 }
 
 /* ── FSAE project detail pages — Carbon white: clean white with red accent ── */
@@ -127,27 +127,27 @@ body[data-theme="fsae-light"] {
   --surface:     #ffffff;
   --surface-alt: #f2f2f2;
   --border:      rgba(0,0,0,0.09);
-  --accent:      #c0392b;
-  --accent-dim:  rgba(192,57,43,0.07);
+  --accent:      #c70909;
+  --accent-dim:  rgba(185, 66, 53, 0.07);
   --accent-glow: rgba(192,57,43,0.16);
   --text:        #1a1a1a;
   --text-muted:  #555555;
   --text-dim:    #999999;
 }
 
-/* ── BRP experience detail — Field green: white with green accent ── */
+/* ── BRP experience detail — Navy blue: white with deep blue accent ── */
 body[data-theme="brp-light"] {
-  --bg:          #f4f6f4;
-  --bg-alt:      #eaeeea;
+  --bg:          #f3f6fb;
+  --bg-alt:      #eaf0f8;
   --surface:     #ffffff;
-  --surface-alt: #f0f4f0;
-  --border:      rgba(0,0,0,0.09);
-  --accent:      #2e7d3a;
-  --accent-dim:  rgba(46,125,58,0.08);
-  --accent-glow: rgba(46,125,58,0.18);
-  --text:        #141a14;
-  --text-muted:  #445544;
-  --text-dim:    #889988;
+  --surface-alt: #edf3fb;
+  --border:      rgba(18,42,74,0.12);
+  --accent:      #0f499b;
+  --accent-dim:  rgba(26,62,114,0.08);
+  --accent-glow: rgba(17, 60, 121, 0.18);
+  --text:        #0e264b;
+  --text-muted:  #303d4d;
+  --text-dim:    #8a9bb1;
 }
 
 /* ── NRC experience detail — Blueprint white: white with brass/gold accent ── */
